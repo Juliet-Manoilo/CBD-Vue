@@ -1,0 +1,24 @@
+@import "./vars.scss";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.2s ease;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  background-color: $bgc-color;
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}

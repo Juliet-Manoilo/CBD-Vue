@@ -34,54 +34,74 @@
     </div>
    <div class="tabs">
 <tabs />
-  </div>
 
-<splide><div id="splide" class="splide" >
-	<div class="splide__track">
-		<ul class="splide__list">
-			<li class="splide__slide">
-				<img src="../assets/tabs1.png">
-				<h4>Heading 01</h4>
-				<div>
-					Description 01
-				</div>
-			</li>
-			<li class="splide__slide">
-				<img src="../assets/tabs2.png">
-				<h4>Heading 02</h4>
-				<div>
-					Description 02
-				</div>
-			</li>
-		</ul>
-	</div>
-</div> </splide>
+  </div></section>
+  <section class="products">
+<h3 class="products__title">CBD Featured Products</h3>
+<splide :options="options">
+  <splide-slide>
+    <div class="products__card">
+<div class="products__stars-wrapper"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i></div>
+<h4 class="products__subtitle">CBD 500 mg Orange Flavor Tincture</h4>
+    <img src="../assets/prod1.png"></div>
+  </splide-slide>
+  <splide-slide>
+    <div class="products__card">
+<div class="products__stars-wrapper"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i></div>
+<h4 class="products__subtitle">Black ICE CBD Muscle Rub 200 mg</h4>
+    <img src="../assets/prod2.png"></div>
+  </splide-slide>
+  <splide-slide>
+    <div class="products__card">
+<div class="products__stars-wrapper"><i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i></div>
+<h4 class="products__subtitle">CBD+Curcumin Coffee 750 mg</h4>
+    <img src="../assets/prod3.png"></div>
+  </splide-slide>
+</splide>
  </section>
 </section>
 </template>
 
 <script>
 import Tabs from "../components/tabs";
-import { Splide } from '@splidejs/vue-splide';
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 //import Carousel from '../components/carousel.vue';
-document.addEventListener( 'DOMContentLoaded', function () {
-	new Splide( '#splide', {
-		type   : 'loop',
-	perPage: 3,
-	focus  : 'center',
-	} ).mount();
-} );
+
+
+
 export default {
   name: 'Home',
   components: {
     Tabs,
    Splide, 
-   
+   SplideSlide,
     
   },
   data () {
   return {
-    
+    options: {
+  type: 'loop',
+  perPage: 1,
+  width: '100%',
+  fixedWidth: '30%',
+  height: '55vh',
+  perMove: 1,
+  gap: '8em',
+  pagination: false,
+    }
      };
 }
   
@@ -285,7 +305,28 @@ left: 50%;
     position: relative;
     margin-bottom: 100px;
   }
+
 }
 
-
+.products {
+width: 100%;
+text-transform: uppercase;
+&__title {
+  font-size: $logo-size;
+  margin-bottom: 75px;
+}
+&__card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 450px;
+  background-color: $white;
+  border: 1px solid $tabs-border;
+}
+&__stars-wrapper {
+  color: $star-color;
+}
+}
 </style>

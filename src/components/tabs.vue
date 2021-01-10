@@ -15,7 +15,7 @@
         <p class="tabContainer__text">Why does CBD work? The human body has a vast network of receptors, the endocannabinoid system.</p>
   </div>
   <div class="tabContainer__right-block"><img class="tabContainer__image" src="../assets/tabs1.png" alt="mountain">
-  <img src="../assets/tabs2.png" alt="wheat"></div>
+  <img class="tabContainer__image" src="../assets/tabs2.png" alt="wheat"></div>
   </div>
       <div v-if="activetab === 2" class="tabContainer__tabcontent">
            <div class="tabContainer__left-block"><h3 class="tabContainer__title">Lorem ipsum dolor sit amet.</h3>
@@ -24,13 +24,13 @@
       
         </div>
       <div class="tabContainer__right-block"><img class="tabContainer__image" src="../assets/tabs2.png" alt="mountain">
-  <img src="../assets/tabs1.png" alt="wheat"></div></div>
+  <img class="tabContainer__image" src="../assets/tabs1.png" alt="wheat"></div></div>
       <div v-if="activetab === 3" class="tabContainer__tabcontent">
        <div class="tabContainer__left-block"><h3 class="tabContainer__title">de Finibus Bonorum et Malorum</h3>
          <p class="tabContainer__text">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.  </p>
       <p class="tabContainer__text">No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful.</p>
       </div><div class="tabContainer__right-block"><img class="tabContainer__image" src="../assets/tabs1.png" alt="mountain">
-  <img src="../assets/tabs2.png" alt="wheat"></div></div>
+  <img class="tabContainer__image" src="../assets/tabs2.png" alt="wheat"></div></div>
     </div>
   </div>
 </template>
@@ -51,10 +51,11 @@ export default {
   background-color: $bgc-color;
   text-align: left;
   font-size: 30px;
-  width: 70%;
+  width: 75%;
   position: relative;
   margin: auto;
-  min-height: 85vh;
+  min-height: 90vh;
+  margin-bottom: 6%;
   &__tab-link {
      margin-right: 75px;
      font-size: $logo-size;
@@ -92,10 +93,11 @@ text-align: left;
       position: relative;
   }
   &__content {
-      width: 100%;
+      width: 90%;
   }
   &__image {
       margin-bottom: 30px;
+      width: 70%;
   }
   &__title {
       font-size: $sub-title-size;

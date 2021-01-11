@@ -1,7 +1,7 @@
 <template>
 <section>
   <section class="home">
-      <div class="home__top-panel">
+      <header class="home__top-panel">
         <nav class="home__nav">
           <a href="#" class="home__nav-links">HOME</a>
           <a href="#" class="home__nav-links">PRODUCTS</a>
@@ -16,7 +16,7 @@
           <div class="home__link-wrapper"><i class="fas fa-search"></i><a href="#" class="home__btn-links--search">SEARCH </a></div>
          <div class="home__link-wrapper"> <a href="#" class="home__btn-links">CART (0)</a></div>
         </div>
-      </div>
+      </header >
       <div class="home__content">
         <h1 class="home__title">Enhancing Life  Excelling in Care</h1>
         <h2 class="home__subtitle"> Choose Wisely. Choose CBD.</h2>
@@ -26,7 +26,7 @@
       </div>
       <h3 class="home__vertical-text"> CBD POTION HEALTH</h3>
   </section>
-  <section class="about">
+  <main class="about">
     <div class="about__what-we-are">
 <img class="about__border" src="../assets/about-border.png" alt="border">
 <h3 class="about__title">WE ARE WHAT WE ARE</h3>
@@ -35,10 +35,17 @@
    <div class="tabs">
 <tabs />
 
-  </div></section>
+  </div></main>
   <section class="products">
 <h3 class="products__title">CBD Featured Products</h3>
-<splide :options="options">
+<splide :options="options" style="position: relative;">
+   <div class="splide__arrows">
+		<button class="splide__arrow splide__arrow--prev">
+      
+		</button>
+		<button class="splide__arrow splide__arrow--next">
+		</button>
+	</div>
   <splide-slide>
     <div class="products__card">
 <div class="products__stars-wrapper"><i class="fas fa-star"></i>
@@ -48,6 +55,7 @@
 <i class="fas fa-star"></i></div>
 <h4 class="products__subtitle">CBD 500 mg Orange Flavor Tincture</h4>
     <img src="../assets/prod1.png"></div>
+    <div class="products__shop"><p class="products__price"> $49.99 USD</p> <button type="submit" class="products__btn"> SHOP</button></div>
   </splide-slide>
   <splide-slide>
     <div class="products__card">
@@ -58,6 +66,7 @@
 <i class="fas fa-star"></i></div>
 <h4 class="products__subtitle">Black ICE CBD Muscle Rub 200 mg</h4>
     <img src="../assets/prod2.png"></div>
+    <div class="products__shop"><p class="products__price">$49.99 USD</p> <button type="submit" class="products__btn"> SHOP</button></div>
   </splide-slide>
   <splide-slide>
     <div class="products__card">
@@ -68,9 +77,12 @@
 <i class="fas fa-star"></i></div>
 <h4 class="products__subtitle">CBD+Curcumin Coffee 750 mg</h4>
     <img src="../assets/prod3.png"></div>
+    <div class="products__shop"><p class="products__price">$49.99 USD</p> <button type="submit" class="products__btn"> SHOP</button></div>
   </splide-slide>
+  
 </splide>
  </section>
+ <accordeon />
 </section>
 </template>
 
@@ -78,7 +90,7 @@
 import Tabs from "../components/tabs";
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-//import Carousel from '../components/carousel.vue';
+import Accordeon from '../components/accordeon.vue';
 
 
 
@@ -88,7 +100,7 @@ export default {
     Tabs,
    Splide, 
    SplideSlide,
-    
+   Accordeon, 
   },
   data () {
   return {
@@ -99,9 +111,11 @@ export default {
   fixedWidth: '30%',
   height: '55vh',
   perMove: 1,
-  gap: '8em',
+  gap: '6em',
   pagination: false,
-    }
+  arrowPath: 'M39.726,10.352 L39.726,10.352 L30.637,1.269 C30.311,0.888 29.737,0.843 29.356,1.170 C28.975,1.496 28.930,2.070 29.257,2.451 C29.287,2.486 29.320,2.519 29.356,2.549 L36.890,10.088 L0.909,10.088 C0.407,10.088 -0.000,10.495 -0.000,10.997 C-0.000,11.498 0.407,11.904 0.909,11.904 L36.890,11.904 L29.356,19.434 C28.975,19.761 28.930,20.334 29.257,20.715 C29.583,21.096 30.157,21.141 30.538,20.814 C30.573,20.783 30.607,20.751 30.637,20.715 L39.726,11.632 C40.078,11.278 40.078,10.706 39.726,10.352 Z',
+    },
+    
      };
 }
   
@@ -267,7 +281,7 @@ opacity: 0.7;
   min-height: 100vh;
   text-align: center;
   padding-top: 2%;
-  
+  font-family: $main-font;
   
   &__border {
     position: absolute;
@@ -309,8 +323,11 @@ left: 50%;
 }
 
 .products {
+  font-family: $main-font;
 width: 100%;
 text-transform: uppercase;
+min-height: 80vh;
+margin-bottom: 5%;
 &__title {
   font-size: $logo-size;
   margin-bottom: 75px;
@@ -328,5 +345,75 @@ text-transform: uppercase;
 &__stars-wrapper {
   color: $star-color;
 }
+&__shop {
+  background-color: $price-bcg;
+  height: 75px;
+  border-left: 1px solid $price-border;
+  border-bottom: 1px solid $price-border;
+  text-align: left;
+  color: $white;
 }
+&__price {
+  width: 69%;
+  text-align: left;
+  height: 100%;
+  margin: 0;
+  display: inline-block;
+  padding-left: 10%;
+  font-size: $link-size;
+  color: $black;
+  border-bottom: 1px solid $price-border;
+}
+&__btn {
+  width: 30%;
+  height: 100%;
+  font-size: $btn-size;
+  text-align: left;
+  padding-left: 5%;
+  background-color: $text-color;
+  color: $white;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 30%;
+    border-bottom: 2px solid $white;
+    top: 49%;
+    right: 15%;
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+}
+}
+
+.splide {
+  height: 600px;
+&__arrows {
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  }}
+
+
+.splide__arrow--prev {
+  background: none;
+  position: absolute;
+  left: 47%;
+  
+  color: $arrow;
+  
+}
+
+.splide__arrow--next {
+  background: none;
+  position: absolute;
+  right: 47%;
+  color: $arrow;
+}
+
+
+
 </style>

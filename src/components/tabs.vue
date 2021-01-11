@@ -48,6 +48,7 @@ export default {
 <style lang="scss">
 @import "../styles/core/vars.scss";
 .tabContainer {
+  font-family: $main-font;
   background-color: $bgc-color;
   text-align: left;
   font-size: 30px;
